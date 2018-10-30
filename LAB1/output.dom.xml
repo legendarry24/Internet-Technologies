@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<tns:Flowers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sherbakov.nure.ua/practice7/entity input.xsd" xmlns:tns="http://sherbakov.nure.ua/practice7/entity">
+    <Flower>
+        <Name>Hedychium</Name>
+        <Soil>wood-podzolic</Soil>
+        <Origin>South Asia</Origin>
+        <VisualParameters>
+            <StalkColor>Yellow</StalkColor>
+            <ColorOfLeaves/>
+            <AveragePlantSize>45</AveragePlantSize>
+        </VisualParameters>
+        <GrovingTips>
+            <Temperature>27</Temperature>
+            <Lighting>false</Lighting>
+            <Watering>105</Watering>
+        </GrovingTips>
+        <Multipling>feces</Multipling>
+    </Flower>
+    <Flower>
+        <Name>Rose</Name>
+        <Soil>podzolic</Soil>
+        <Origin>Holland</Origin>
+        <VisualParameters>
+            <StalkColor>Red</StalkColor>
+            <ColorOfLeaves/>
+            <AveragePlantSize>60</AveragePlantSize>
+        </VisualParameters>
+        <GrovingTips>
+            <Temperature>20</Temperature>
+            <Lighting>true</Lighting>
+            <Watering>80</Watering>
+        </GrovingTips>
+        <Multipling>leaves</Multipling>
+    </Flower>
+    <Flower>
+        <Name>Thoren</Name>
+        <Soil>unpaved</Soil>
+        <Origin>Asia</Origin>
+        <VisualParameters>
+            <StalkColor>Violet</StalkColor>
+            <ColorOfLeaves/>
+            <AveragePlantSize>30</AveragePlantSize>
+        </VisualParameters>
+        <GrovingTips>
+            <Temperature>22</Temperature>
+            <Lighting>true</Lighting>
+            <Watering>60</Watering>
+        </GrovingTips>
+        <Multipling>seeds</Multipling>
+    </Flower>
+</tns:Flowers>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Flowers
+	xmlns:tns="http://sherbakov.nure.ua/practice7/entity"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://sherbakov.nure.ua/practice7/entity input.xsd ">
+	<Flower Id="1" Soil="podzolic">
+		<Name>Rose</Name>
+		<Origin>Holland</Origin>
+		<VisualParameters>
+			<AveragePlantSize>60</AveragePlantSize>
+		</VisualParameters>
+		<GrovingTips>
+			<Temperature>20</Temperature>
+			<Watering>80</Watering>
+			<Lighting>true</Lighting>
+		</GrovingTips>
+		<Multipling>feces</Multipling>
+		<Price>15.59</Price>
+	</Flower>
+	<Flower Id="2" Soil="wood-podzolic">
+		<Name>Hedychium</Name>
+		<Origin>South Asia</Origin>
+		<VisualParameters>
+			<StalkColor>Green</StalkColor>
+		</VisualParameters>
+		<GrovingTips>
+			<Temperature>27</Temperature>
+			<Watering>105</Watering>
+			<Lighting>false</Lighting>
+		</GrovingTips>
+		<Multipling>feces</Multipling>
+		<Price>12.79</Price>
+	</Flower>
+
+	<Flower Id="3">
+		<Name>Thoren</Name>
+		<Origin>Asia</Origin>
+		<VisualParameters>
+			<ColorOfLeaves>Violet</ColorOfLeaves>
+		</VisualParameters>
+		<GrovingTips>
+			<Watering>60</Watering>
+			<Temperature>22</Temperature>
+			<Lighting>true</Lighting>
+		</GrovingTips>
+		<Multipling>seeds</Multipling>
+		<Price>16.49</Price>
+	</Flower>
+
+	<Flower Id="4" Soil="unpaved">
+		<Name>Kermek</Name>
+		<Origin>Asia</Origin>
+		<VisualParameters>
+			<ColorOfLeaves>Blue</ColorOfLeaves>
+		</VisualParameters>
+		<GrovingTips>
+			<Watering>60</Watering>
+			<Temperature>22</Temperature>
+			<Lighting>true</Lighting>
+		</GrovingTips>
+		<Multipling>seeds</Multipling>
+		<Price>20.99</Price>
+	</Flower>
+
+	<Flower Id="5" Soil="unpaved">
+		<Name>Abelia</Name>
+		<Origin>Japan</Origin>
+		<VisualParameters>
+			<ColorOfLeaves>Blue</ColorOfLeaves>
+		</VisualParameters>
+		<GrovingTips>
+			<Watering>60</Watering>
+			<Temperature>22</Temperature>
+			<Lighting>true</Lighting>
+		</GrovingTips>
+		<Multipling>seeds</Multipling>
+		<Price>20.99</Price>
+	</Flower>
+</tns:Flowers>
