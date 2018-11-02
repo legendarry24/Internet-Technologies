@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Flowers
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tns="http://sherbakov.nure.ua/practice7/entity"
+	xsi:schemaLocation="http://sherbakov.nure.ua/practice7/entity input.xsd ">
+	<Flower>
+		<Name>Rose</Name>
+		<Soil>podzolic</Soil>
+		<Origin>Holland</Origin>
+		<VisualParameters>
+			<StalkColor>Green</StalkColor>
+			<ColorOfLeaves>Red</ColorOfLeaves>
+			<AveragePlantSize>60</AveragePlantSize>
+		</VisualParameters>
+		<GrovingTips>
+			<Temperature>20</Temperature>
+			<Lighting>true</Lighting>
+			<Watering>80</Watering>
+		</GrovingTips>
+		<Multipling>leaves</Multipling>
+	</Flower>
+	<Flower>
+		<Name>Thoren</Name>
+		<Soil>unpaved</Soil>
+		<Origin>Asia</Origin>
+		<VisualParameters>
+			<StalkColor>Green</StalkColor>
+			<ColorOfLeaves>Violet</ColorOfLeaves>
+			<AveragePlantSize>30</AveragePlantSize>
+		</VisualParameters>
+		<GrovingTips>
+			<Temperature>22</Temperature>
+			<Lighting>true</Lighting>
+			<Watering>60</Watering>
+		</GrovingTips>
+		<Multipling>seeds</Multipling>
+	</Flower>
+</tns:Flowers>
