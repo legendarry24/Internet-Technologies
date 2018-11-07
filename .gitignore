@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
 
+# exclude IDEA utility folder
+.idea/
+
 # Log file
 *.log
 
