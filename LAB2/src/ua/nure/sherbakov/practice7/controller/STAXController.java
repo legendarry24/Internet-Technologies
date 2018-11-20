@@ -1,11 +1,13 @@
 package ua.nure.sherbakov.practice7.controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
@@ -14,12 +16,14 @@ import javax.xml.transform.stream.StreamSource;
 
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
+import javax.xml.namespace.QName;
 
 import ua.nure.sherbakov.practice7.constants.Constants;
 import ua.nure.sherbakov.practice7.constants.XML;
 import ua.nure.sherbakov.practice7.entity.Flowers;
 import ua.nure.sherbakov.practice7.entity.Flower;
 import ua.nure.sherbakov.practice7.entity.GrovingTips;
+import ua.nure.sherbakov.practice7.entity.Multipling;
 import ua.nure.sherbakov.practice7.entity.VisualParameters;
 
 public class STAXController extends DefaultHandler {
@@ -71,6 +75,13 @@ public class STAXController extends DefaultHandler {
 
 				if (currentElement == XML.FLOWER.value()) {
 					flower = new Flower();
+					Attribute attribute = startElement.getAttributeByName(new QName(XML.ID.value()));
+					if (attribute != null)
+						flower.setId(Integer.parseInt(attribute.getValue()));
+
+					attribute = startElement.getAttributeByName(new QName(XML.SOIL.value()));
+					if (attribute != null)
+						flower.setSoil(attribute.getValue());
 					continue;
 				}
 
@@ -137,7 +148,13 @@ public class STAXController extends DefaultHandler {
 				}
 
 				if (currentElement == XML.MULTIPLING.value()) {
-					flower.setMultipling(elementText);
+					flower.setMultipling(Multipling.fromValue(elementText));
+					continue;
+				}
+
+				if (currentElement == XML.PRICE.value()) {
+					double price = Double.parseDouble(elementText);
+					flower.setPrice(BigDecimal.valueOf(price));
 					continue;
 				}
 

@@ -3,14 +3,14 @@ package ua.nure.sherbakov.practice7.constants;
 public final class Constants {
 	// files
 	// TODO remove in production
-	public static final String VALID_XML_FILE = "input1.xml";
+	public static final String VALID_XML_FILE = "input.xml";
 	public static final String INVALID_XML_FILE = "input-invalid.xml";
 	public static final String XSD_FILE = "input.xsd";
 
 	public static final String OUTPUT_DOM_XML_FILE = "output.dom.xml";
 	public static final String OUTPUT_SAX_XML_FILE = "output.sax.xml";
 	public static final String OUTPUT_STAX_XML_FILE = "output.stax.xml";
-	
+
 	// this package contains jaxb entities. To get entities use the following
 	// command: xjc Test.xsd -p PACKAGE_FOR_ENTITIES -d YOUR_SRC_FOLDER
 	public static final String JAXB__PACKAGE = " ua.nure.sherbakov.practice7.entity";

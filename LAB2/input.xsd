@@ -4,10 +4,9 @@
 	xmlns:tns="http://sherbakov.nure.ua/practice7/entity">
 
 	<element name="Flowers">
-
 		<complexType>
 			<sequence>
-				<element name="Flower" type="tns:Flower" minOccurs="2"
+				<element name="Flower" type="tns:Flower" minOccurs="1"
 					maxOccurs="unbounded" />
 			</sequence>
 		</complexType>
@@ -16,7 +15,6 @@
 	<complexType name="Flower">
 		<sequence>
 			<element name="Name" type="token" />
-
 			<element name="Origin" type="token" />
 			<element name="VisualParameters" type="tns:VisualParameters" />
 			<element name="GrovingTips" type="tns:GrovingTips" />
@@ -32,7 +30,7 @@
 			</element>
 		</sequence>
 		<attribute name="Soil" type="tns:Soil" use="optional" />
-		<attribute name="Id" use="required">
+		<attribute name="id" use="required">
 			<simpleType>
 				<restriction base="int">
 					<minExclusive value="0"></minExclusive>
@@ -59,6 +57,7 @@
 	<complexType name="VisualParameters">
 		<choice>
 			<element name="StalkColor" type="token" />
+
 			<element name="ColorOfLeaves">
 				<simpleType>
 					<restriction base="token">
@@ -67,6 +66,7 @@
 					</restriction>
 				</simpleType>
 			</element>
+
 			<element name="AveragePlantSize">
 				<simpleType>
 					<restriction base="int">

@@ -29,7 +29,6 @@
 					Flower:
 				</td>
 				<td>
-					№
 					<xsl:value-of select="@Id" />
 				</td>
 			</tr>
@@ -111,7 +110,6 @@
 				</td>
 			</tr>
 		</table>
-
 	</xsl:template>
 
 	<xsl:template match="GrovingTips">

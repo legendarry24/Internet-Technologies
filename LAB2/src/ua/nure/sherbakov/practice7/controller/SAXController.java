@@ -1,23 +1,25 @@
 package ua.nure.sherbakov.practice7.controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
+import javax.xml.namespace.QName;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+import javax.xml.stream.events.Attribute;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-
 
 import ua.nure.sherbakov.practice7.constants.Constants;
 import ua.nure.sherbakov.practice7.constants.XML;
 import ua.nure.sherbakov.practice7.entity.Flowers;
 import ua.nure.sherbakov.practice7.entity.Flower;
 import ua.nure.sherbakov.practice7.entity.GrovingTips;
+import ua.nure.sherbakov.practice7.entity.Multipling;
 import ua.nure.sherbakov.practice7.entity.VisualParameters;
-
 
 public class SAXController extends DefaultHandler {
 	private String xmlFileName;
@@ -81,7 +83,7 @@ public class SAXController extends DefaultHandler {
 	private Flower flower;
 	private GrovingTips grovingTips;
 	private VisualParameters visualParameters;
-	
+
 	public Flowers getFlowers() {
 		return flowers;
 	}
@@ -100,14 +102,20 @@ public class SAXController extends DefaultHandler {
 
 		if (currentElement == XML.FLOWER.value()) {
 			flower = new Flower();
+			if (attributes.getLength() > 0) {
+				flower.setId(Integer.parseInt(attributes.getValue(uri, XML.ID.value())));
+			}
+			if (attributes.getLength() > 0) {
+				flower.setSoil((attributes.getValue(uri, XML.SOIL.value())));
+			}
 			return;
 		}
-		
+
 		if (currentElement == XML.VISUAL_PARAMETERS.value()) {
 			visualParameters = new VisualParameters();
 			return;
 		}
-		
+
 		if (currentElement == XML.GROVING_TIPS.value()) {
 			grovingTips = new GrovingTips();
 			return;
@@ -127,52 +135,57 @@ public class SAXController extends DefaultHandler {
 			flower.setName(elementText);
 			return;
 		}
-		
+
 		if (currentElement == XML.SOIL.value()) {
 			flower.setSoil(elementText);
 			return;
 		}
-		
+
 		if (currentElement == XML.ORIGIN.value()) {
 			flower.setOrigin(elementText);
 			return;
 		}
-		
+
 		if (currentElement == XML.STALK_COLOR.value()) {
 			visualParameters.setStalkColor(elementText);
 			return;
 		}
-		
+
 		if (currentElement == XML.COLOR_OF_LEAVES.value()) {
 			visualParameters.setColorOfLeaves(elementText);
 			return;
 		}
-		
+
 		if (currentElement == XML.AVERAGE_PLANT_SIZE.value()) {
 			visualParameters.setAveragePlantSize(Integer.parseInt(elementText));
 			return;
 		}
-		
+
 		if (currentElement == XML.TEMPERATURE.value()) {
 			grovingTips.setTemperature(Integer.parseInt(elementText));
 			return;
 		}
-		
+
 		if (currentElement == XML.LIGHTING.value()) {
 			grovingTips.setLighting(Boolean.parseBoolean(elementText));
 			return;
 		}
-		
+
 		if (currentElement == XML.WATERING.value()) {
 			grovingTips.setWatering(Integer.parseInt(elementText));
 			return;
 		}
-		
+
 		if (currentElement == XML.MULTIPLING.value()) {
-			flower.setMultipling(elementText);
+			flower.setMultipling(Multipling.fromValue(elementText));
 			return;
 		}
-		
+
+		if (currentElement == XML.PRICE.value()) {
+			double price = Double.parseDouble(elementText);
+			flower.setPrice(BigDecimal.valueOf(price));
+			return;
+		}
 	}
 
 	@Override
@@ -183,13 +196,13 @@ public class SAXController extends DefaultHandler {
 			flowers.getFlowers().add(flower);
 			return;
 		}
-		
+
 		if (localName == XML.VISUAL_PARAMETERS.value()) {
 			// just add question to container
 			flower.setVisualParameters(visualParameters);
 			return;
 		}
-		
+
 		if (localName == XML.GROVING_TIPS.value()) {
 			// just add question to container
 			flower.setGrovingTips(grovingTips);
@@ -209,23 +222,5 @@ public class SAXController extends DefaultHandler {
 		System.out.print("Here is the flowers: \n" + flowers);
 		System.out.println("====================================");
 
-		// now try to parse NOT valid XML (failed)
-		/*saxContr = new SAXController(Constants.INVALID_XML_FILE);
-		try {
-			saxContr.parse(true); // <-- do parse with validation on (failed)
-		} catch (Exception ex) {
-			System.err.println("====================================");
-			System.err.println("Validation is failed:\n" + ex.getMessage());
-			System.err.println("Try to print test object:" + saxContr.getFlowers());
-			System.err.println("====================================");
-		}
-
-		// and now try to parse NOT valid XML with validation off (success)
-		saxContr.parse(false); // <-- do parse with validation off (success)
-
-		// we have Test object at this point:
-		System.out.println("====================================");
-		System.out.print("Here is the flowers: \n" + saxContr.getFlowers());
-		System.out.println("====================================");*/
 	}
 }

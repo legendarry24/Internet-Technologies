@@ -1,6 +1,7 @@
 package ua.nure.sherbakov.practice7.controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
@@ -21,6 +22,7 @@ import ua.nure.sherbakov.practice7.constants.XML;
 import ua.nure.sherbakov.practice7.entity.Flowers;
 import ua.nure.sherbakov.practice7.entity.Flower;
 import ua.nure.sherbakov.practice7.entity.GrovingTips;
+import ua.nure.sherbakov.practice7.entity.Multipling;
 import ua.nure.sherbakov.practice7.entity.VisualParameters;
 import ua.nure.sherbakov.practice7.util.Transformer;
 
@@ -102,20 +104,25 @@ public class DOMController {
 	 * @param fNode Question node.
 	 * @return Question object.
 	 */
+
 	private Flower getFlower(Node fNode) {
 		Flower flower = new Flower();
 		Element fElement = (Element) fNode;
 
+		String id = fElement.getAttribute(XML.ID.value());
+		flower.setId(Integer.parseInt(id)); // <-- set correct
+
+		String soil = fElement.getAttribute(XML.SOIL.value());
+		flower.setSoil(soil); // <-- set correct
+
 		// process question text
 		Node nNode = fElement.getElementsByTagName(XML.NAME.value()).item(0);
+
 		// set question text
 		flower.setName(nNode.getTextContent());
 
-		// process answers
-		Node sNode = fElement.getElementsByTagName(XML.SOIL.value()).item(0);
-		flower.setSoil(sNode.getTextContent());
-
 		Node oNode = fElement.getElementsByTagName(XML.ORIGIN.value()).item(0);
+
 		flower.setOrigin(oNode.getTextContent());
 
 		flower.setVisualParameters(
@@ -124,7 +131,12 @@ public class DOMController {
 		flower.setGrovingTips(getGrovingTips(fElement.getElementsByTagName(XML.GROVING_TIPS.value()).item(0)));
 
 		Node mNode = fElement.getElementsByTagName(XML.MULTIPLING.value()).item(0);
-		flower.setMultipling(mNode.getTextContent());
+
+		flower.setMultipling(Multipling.fromValue(mNode.getTextContent()));
+
+		Node pNode = fElement.getElementsByTagName(XML.ORIGIN.value()).item(0);
+
+		flower.setPrice(BigDecimal.valueOf(Double.parseDouble(pNode.getTextContent())));
 
 		return flower;
 	}
@@ -135,6 +147,7 @@ public class DOMController {
 	 * @param flower      Flowers object to be saved.
 	 * @param xmlFileName Output xml file name.
 	 */
+
 	public static void saveXML(Flowers flower, String xmlFileName)
 			throws ParserConfigurationException, TransformerException {
 
@@ -177,6 +190,7 @@ public class DOMController {
 
 		// add flowers elements
 		for (Flower flowers : flower.getFlowers()) {
+
 			// add flower
 			Element fElement = document.createElement(XML.FLOWER.value());
 			fsElement.appendChild(fElement);
@@ -236,11 +250,14 @@ public class DOMController {
 
 			// add multiplying
 			Element mElement = document.createElement(XML.MULTIPLING.value());
-			mElement.setTextContent(flowers.getMultipling());
+			mElement.setTextContent("" + flowers.getMultipling());
 			fElement.appendChild(mElement);
 
+			// add price
+			Element pElement = document.createElement(XML.PRICE.value());
+			sElement.setTextContent("" + flowers.getPrice());
+			fElement.appendChild(pElement);
 		}
-
 		Transformer.saveToXML(document, xmlFileName); // DOM -> XML
 	}
 
@@ -250,6 +267,7 @@ public class DOMController {
 	 * @param vpNode Answer node.
 	 * @return Answer object.
 	 */
+
 	private VisualParameters getVisualParameters(Node vpNode) {
 		VisualParameters visualParameter = new VisualParameters();
 		Element fElement = (Element) vpNode;
