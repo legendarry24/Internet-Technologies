@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://sherbakov.nure.ua/practice7/entity"
+	xmlns:tns="http://sherbakov.nure.ua/practice7/entity">
+
+	<element name="Flowers">
+
+		<complexType>
+			<sequence>
+				<element name="Flower" type="tns:Flower" minOccurs="2"
+					maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="Flower">
+		<sequence>
+			<element name="Name" type="token" />
+
+			<element name="Origin" type="token" />
+			<element name="VisualParameters" type="tns:VisualParameters" />
+			<element name="GrovingTips" type="tns:GrovingTips" />
+			<element name="Multipling" type="tns:Multipling" />
+			<element name="Price">
+				<simpleType>
+					<restriction base="decimal">
+						<fractionDigits value="2"></fractionDigits>
+						<totalDigits value="4"></totalDigits>
+						<minExclusive value="0"></minExclusive>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+		<attribute name="Soil" type="tns:Soil" use="optional" />
+		<attribute name="Id" use="required">
+			<simpleType>
+				<restriction base="int">
+					<minExclusive value="0"></minExclusive>
+				</restriction>
+			</simpleType>
+		</attribute>
+	</complexType>
+
+	<simpleType name="Multipling">
+		<restriction base="token">
+			<enumeration value="leaves"></enumeration>
+			<enumeration value="feces"></enumeration>
+			<enumeration value="seeds"></enumeration>
+			<pattern value="leaves|feces|seeds" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Soil">
+		<restriction base="token">
+			<pattern value="podzolic|unpaved|wood-podzolic" />
+		</restriction>
+	</simpleType>
+
+	<complexType name="VisualParameters">
+		<choice>
+			<element name="StalkColor" type="token" />
+			<element name="ColorOfLeaves">
+				<simpleType>
+					<restriction base="token">
+						<minLength value="3"></minLength>
+						<maxLength value="10"></maxLength>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="AveragePlantSize">
+				<simpleType>
+					<restriction base="int">
+						<minExclusive value="0" />
+					</restriction>
+				</simpleType>
+			</element>
+		</choice>
+	</complexType>
+
+	<complexType name="GrovingTips">
+		<all>
+			<element name="Temperature" minOccurs="0">
+				<simpleType>
+					<restriction base="int">
+						<minInclusive value="0" />
+						<maxInclusive value="60" />
+					</restriction>
+				</simpleType>
+			</element>
+
+			<element name="Lighting" type="boolean" minOccurs="0"></element>
+
+			<element name="Watering" minOccurs="0">
+				<simpleType>
+					<restriction base="int">
+						<minInclusive value="0" />
+					</restriction>
+				</simpleType>
+			</element>
+		</all>
+	</complexType>
+</schema>
