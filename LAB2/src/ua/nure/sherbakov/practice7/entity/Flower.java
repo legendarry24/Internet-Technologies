@@ -246,7 +246,7 @@ public class Flower {
 	@Override
 	public String toString() {
 		return "Flower id=" + id + ", soil=" + soil + "\nname=" + name + ", \norigin=" + origin + ", \nvisualParameters="
-				+ visualParameters + ", \ngrovingTips=" + grovingTips + ", \nmultipling=" + multipling + ", \nprice=" + price
+				+ visualParameters + ", \ngrovingTips=" + grovingTips + ", \nmultipling=" + multipling.value() + ", \nprice=" + price
 				+ "\n";
 	}
 

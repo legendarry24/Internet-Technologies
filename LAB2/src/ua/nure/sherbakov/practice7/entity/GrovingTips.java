@@ -124,7 +124,7 @@ public class GrovingTips {
 
 	@Override
 	public String toString() {
-		return "GrovingTips [temperature=" + temperature + ", lighting=" + lighting + ", watering=" + watering + "]";
+		return "[temperature=" + temperature + ", lighting=" + lighting + ", watering=" + watering + "]";
 	}
 
 }

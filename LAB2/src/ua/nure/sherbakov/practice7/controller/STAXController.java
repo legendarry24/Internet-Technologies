@@ -148,7 +148,7 @@ public class STAXController extends DefaultHandler {
 				}
 
 				if (currentElement == XML.MULTIPLING.value()) {
-					flower.setMultipling(Multipling.fromValue(elementText));
+					flower.setMultipling(Multipling.fromValue(elementText.toLowerCase()));
 					continue;
 				}
 

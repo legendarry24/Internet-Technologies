@@ -113,16 +113,17 @@ public class DOMController {
 		flower.setId(Integer.parseInt(id)); // <-- set correct
 
 		String soil = fElement.getAttribute(XML.SOIL.value());
-		flower.setSoil(soil); // <-- set correct
 
-		// process question text
+		if (fElement.getAttribute(XML.SOIL.value()) == null) {
+			flower.setSoil(null);
+		} else {
+			flower.setSoil(soil); // <-- set correct
+		}
+
 		Node nNode = fElement.getElementsByTagName(XML.NAME.value()).item(0);
-
-		// set question text
 		flower.setName(nNode.getTextContent());
 
 		Node oNode = fElement.getElementsByTagName(XML.ORIGIN.value()).item(0);
-
 		flower.setOrigin(oNode.getTextContent());
 
 		flower.setVisualParameters(
@@ -131,13 +132,10 @@ public class DOMController {
 		flower.setGrovingTips(getGrovingTips(fElement.getElementsByTagName(XML.GROVING_TIPS.value()).item(0)));
 
 		Node mNode = fElement.getElementsByTagName(XML.MULTIPLING.value()).item(0);
-
 		flower.setMultipling(Multipling.fromValue(mNode.getTextContent()));
 
 		Node pNode = fElement.getElementsByTagName(XML.PRICE.value()).item(0);
-
 		double price = Double.parseDouble(pNode.getTextContent());
-
 		flower.setPrice(BigDecimal.valueOf(price));
 
 		return flower;
@@ -195,6 +193,14 @@ public class DOMController {
 
 			// add flower
 			Element fElement = document.createElement(XML.FLOWER.value());
+
+			if (document.getElementsByTagName(XML.SOIL.value()) != null) {
+				fElement.setAttribute(XML.SOIL.value(), flowers.getSoil());
+			} else {
+				fElement.getAttribute(null);
+			}
+
+			fElement.setAttribute(XML.ID.value(), "" + flowers.getId());
 			fsElement.appendChild(fElement);
 
 			// add name
@@ -249,7 +255,7 @@ public class DOMController {
 
 			// add multiplying
 			Element mElement = document.createElement(XML.MULTIPLING.value());
-			mElement.setTextContent("" + flowers.getMultipling());
+			mElement.setTextContent("" + flowers.getMultipling().value());
 			fElement.appendChild(mElement);
 
 			// add price
@@ -328,7 +334,7 @@ public class DOMController {
 
 		// we have Flowers object at this point:
 		System.out.println("====================================");
-		System.out.print("Here is the test: \n" + domContr.getFlowers());
+		System.out.print("Here is the flower: \n" + domContr.getFlowers());
 		System.out.println("====================================");
 	}
 }

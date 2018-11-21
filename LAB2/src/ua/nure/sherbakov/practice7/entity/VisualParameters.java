@@ -128,7 +128,7 @@ public class VisualParameters {
 
 	@Override
 	public String toString() {
-		return "VisualParameters [stalkColor=" + stalkColor + ", colorOfLeaves=" + colorOfLeaves + ", averagePlantSize="
+		return "[stalkColor=" + stalkColor + ", colorOfLeaves=" + colorOfLeaves + ", averagePlantSize="
 				+ averagePlantSize + "]";
 	}
 

@@ -177,7 +177,7 @@ public class SAXController extends DefaultHandler {
 		}
 
 		if (currentElement == XML.MULTIPLING.value()) {
-			flower.setMultipling(Multipling.fromValue(elementText));
+			flower.setMultipling(Multipling.fromValue(elementText.toLowerCase()));
 			return;
 		}
 

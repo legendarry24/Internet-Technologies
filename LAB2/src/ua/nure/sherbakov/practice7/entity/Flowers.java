@@ -76,7 +76,7 @@ public class Flowers {
 
 	@Override
 	public String toString() {
-		return "Flowers [flower=" + flower + "]";
+		return "Flowers=" + flower;
 	}
 
 }
