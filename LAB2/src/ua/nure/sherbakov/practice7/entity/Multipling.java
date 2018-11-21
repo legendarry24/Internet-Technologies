@@ -44,11 +44,11 @@ public enum Multipling {
 	private final String value;
 
 	Multipling(String v) {
-		value = v;
+		value = v.toLowerCase();
 	}
 
 	public String value() {
-		return value;
+		return value.toLowerCase();
 	}
 
 	public static Multipling fromValue(String v) {

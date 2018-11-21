@@ -12,12 +12,6 @@ public class Sorter {
 	////////////////////////////////////////////////////////////
 	// these are comparators
 	////////////////////////////////////////////////////////////
-	public static final Comparator<Flower> sortFlowersByVisualParametersSize = new Comparator<Flower>() {
-		@Override
-		public int compare(Flower o1, Flower o2) {
-			return o1.getVisualParameters().getAveragePlantSize() - o2.getVisualParameters().getAveragePlantSize();
-		}
-	};
 
 	public static final Comparator<Flower> sortFlowersByGrovingTipsTemperature = new Comparator<Flower>() {
 		@Override
@@ -37,9 +31,6 @@ public class Sorter {
 	// these methods take Test object and sort it
 	// with according comparator
 	////////////////////////////////////////////////////////////
-	public static final void sortFlowersByVisualParametersSize(Flowers flower) {
-		Collections.sort(flower.getFlowers(), sortFlowersByVisualParametersSize);
-	}
 
 	public static final void sortFlowersByGrovingTipsTemperature(Flowers flower) {
 		Collections.sort(flower.getFlowers(), sortFlowersByGrovingTipsTemperature);
@@ -56,11 +47,6 @@ public class Sorter {
 		Flowers flowers = domController.getFlowers();
 
 		System.out.println("====================================");
-		System.out.println(flowers);
-		System.out.println("====================================");
-
-		System.out.println("====================================");
-		Sorter.sortFlowersByVisualParametersSize(flowers);
 		System.out.println(flowers);
 		System.out.println("====================================");
 

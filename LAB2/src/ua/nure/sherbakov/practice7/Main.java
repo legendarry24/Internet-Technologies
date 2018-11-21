@@ -56,8 +56,6 @@ public class Main {
 		saxController.parse(true);
 		flowers = saxController.getFlowers();
 
-		// sort (case 2)
-		Sorter.sortFlowersByVisualParametersSize(flowers);
 
 		// save
 
