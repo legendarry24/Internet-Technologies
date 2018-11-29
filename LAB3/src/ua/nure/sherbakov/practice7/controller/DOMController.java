@@ -216,19 +216,19 @@ public class DOMController {
 			// add visual parameter
 			Element vpElement = document.createElement(XML.VISUAL_PARAMETERS.value());
 			{
-
-				Element scolorElement = document.createElement(XML.STALK_COLOR.value());
-				scolorElement.setTextContent(flowers.getVisualParameters().getStalkColor());
-				vpElement.appendChild(scolorElement);
-
-				Element coleavesElement = document.createElement(XML.COLOR_OF_LEAVES.value());
-				coleavesElement.setTextContent(flowers.getVisualParameters().getColorOfLeaves());
-				vpElement.appendChild(coleavesElement);
-
-				Element apsizeElement = document.createElement(XML.AVERAGE_PLANT_SIZE.value());
-				apsizeElement.setTextContent("" + flowers.getVisualParameters().getAveragePlantSize());
-				vpElement.appendChild(apsizeElement);
-
+				if (document.getElementsByTagName(XML.STALK_COLOR.value()) != null) {
+					Element scolorElement = document.createElement(XML.STALK_COLOR.value());
+					scolorElement.setTextContent(flowers.getVisualParameters().getStalkColor());
+					vpElement.appendChild(scolorElement);
+				} else if (document.getElementsByTagName(XML.COLOR_OF_LEAVES.value()) != null) {
+					Element coleavesElement = document.createElement(XML.COLOR_OF_LEAVES.value());
+					coleavesElement.setTextContent(flowers.getVisualParameters().getColorOfLeaves());
+					vpElement.appendChild(coleavesElement);
+				} else if (document.getElementsByTagName(XML.AVERAGE_PLANT_SIZE.value()) != null) {
+					Element apsizeElement = document.createElement(XML.AVERAGE_PLANT_SIZE.value());
+					apsizeElement.setTextContent("" + flowers.getVisualParameters().getAveragePlantSize());
+					vpElement.appendChild(apsizeElement);
+				}
 			}
 			fElement.appendChild(vpElement);
 
@@ -277,16 +277,23 @@ public class DOMController {
 		VisualParameters visualParameter = new VisualParameters();
 		Element fElement = (Element) vpNode;
 
-		Node scNode = fElement.getElementsByTagName(XML.STALK_COLOR.value()).item(0);
-		visualParameter.setStalkColor(scNode.getTextContent()); // <-- set correct
-
-		Node colNode = fElement.getElementsByTagName(XML.COLOR_OF_LEAVES.value()).item(0);
-		visualParameter.setColorOfLeaves(colNode.getTextContent()); // <-- set correct
-
-		Node apsNode = fElement.getElementsByTagName(XML.AVERAGE_PLANT_SIZE.value()).item(0);
-		visualParameter.setAveragePlantSize(Integer.parseInt(apsNode.getTextContent())); // <-- set correct
-
-		return visualParameter;
+		// process correct
+		if (fElement.getElementsByTagName(XML.STALK_COLOR.value()).item(0) != null) {
+			Node scNode = fElement.getElementsByTagName(XML.STALK_COLOR.value()).item(0);
+			visualParameter.setStalkColor(scNode.getTextContent()); // <-- set correct
+			return visualParameter;
+		} else if (fElement.getElementsByTagName(XML.COLOR_OF_LEAVES.value()).item(0) != null) {
+			// process correct
+			Node colNode = fElement.getElementsByTagName(XML.COLOR_OF_LEAVES.value()).item(0);
+			visualParameter.setColorOfLeaves(colNode.getTextContent()); // <-- set correct
+			return visualParameter;
+		} else if (fElement.getElementsByTagName(XML.AVERAGE_PLANT_SIZE.value()).item(0) != null) {
+			// process correct
+			Node apsNode = fElement.getElementsByTagName(XML.AVERAGE_PLANT_SIZE.value()).item(0);
+			visualParameter.setAveragePlantSize(Integer.parseInt(apsNode.getTextContent())); // <-- set correct
+			return visualParameter;
+		}
+		return null;
 	}
 
 	private GrovingTips getGrovingTips(Node gtNode) {
