@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<tns:Flowers
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://sherbakov.nure.ua/practice7/entity input.xsd"
+	xmlns:tns="http://sherbakov.nure.ua/practice7/entity">
+	<Flower Soil="podzolic" id="1">
+		<Name>Rose</Name>
+		<Origin>Holland</Origin>
+		<VisualParameters>
+			<StalkColor>Grey</StalkColor>
+			<ColorOfLeaves>Red</ColorOfLeaves>
+			<AveragePlantSize>60</AveragePlantSize>
+		</VisualParameters>
+		<GrovingTips>
+			<Temperature>20</Temperature>
+			<Lighting>true</Lighting>
+			<Watering>80</Watering>
+		</GrovingTips>
+		<Multipling>feces</Multipling>
+		<Price>15.59</Price>
+	</Flower>
+	<Flower Soil="unpaved" id="3">
+		<Name>Thoren</Name>
+		<Origin>Asia</Origin>
+		<VisualParameters>
+			<StalkColor>Green</StalkColor>
+			<ColorOfLeaves>Violet</ColorOfLeaves>
+			<AveragePlantSize>55</AveragePlantSize>
+		</VisualParameters>
+		<GrovingTips>
+			<Temperature>22</Temperature>
+			<Lighting>true</Lighting>
+			<Watering>60</Watering>
+		</GrovingTips>
+		<Multipling>seeds</Multipling>
+		<Price>16.49</Price>
+	</Flower>
+	<Flower Soil="unpaved" id="4">
+		<Name>Kermek</Name>
+		<Origin>Asia</Origin>
+		<VisualParameters>
+			<StalkColor>Green</StalkColor>
+			<ColorOfLeaves>Blue</ColorOfLeaves>
+			<AveragePlantSize>34</AveragePlantSize>
+		</VisualParameters>
+		<GrovingTips>
+			<Temperature>22</Temperature>
+			<Lighting>true</Lighting>
+			<Watering>60</Watering>
+		</GrovingTips>
+		<Multipling>seeds</Multipling>
+		<Price>20.99</Price>
+	</Flower>
+	<Flower Soil="unpaved" id="5">
+		<Name>Abelia</Name>
+		<Origin>Japan</Origin>
+		<VisualParameters>
+			<StalkColor>Green</StalkColor>
+			<ColorOfLeaves>Violet</ColorOfLeaves>
+			<AveragePlantSize>55</AveragePlantSize>
+		</VisualParameters>
+		<GrovingTips>
+			<Temperature>22</Temperature>
+			<Lighting>true</Lighting>
+			<Watering>60</Watering>
+		</GrovingTips>
+		<Multipling>seeds</Multipling>
+		<Price>20.99</Price>
+	</Flower>
+	<Flower Soil="wood-podzolic" id="2">
+		<Name>Hedychium</Name>
+		<Origin>South Asia</Origin>
+		<VisualParameters>
+			<StalkColor>Green</StalkColor>
+			<ColorOfLeaves>Blue</ColorOfLeaves>
+			<AveragePlantSize>12</AveragePlantSize>
+		</VisualParameters>
+		<GrovingTips>
+			<Temperature>27</Temperature>
+			<Lighting>false</Lighting>
+			<Watering>105</Watering>
+		</GrovingTips>
+		<Multipling>feces</Multipling>
+		<Price>12.79</Price>
+	</Flower>
+</tns:Flowers>
