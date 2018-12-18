@@ -55,7 +55,7 @@
 	</simpleType>
 
 	<complexType name="VisualParameters">
-		<sequence>
+		<choice>
 			<element name="StalkColor" type="token" />
 
 			<element name="ColorOfLeaves">
@@ -74,7 +74,7 @@
 					</restriction>
 				</simpleType>
 			</element>
-		</sequence>
+		</choice>
 	</complexType>
 
 	<complexType name="GrovingTips">

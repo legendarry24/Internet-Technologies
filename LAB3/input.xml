@@ -8,8 +8,6 @@
 		<Name>Rose</Name>
 		<Origin>Holland</Origin>
 		<VisualParameters>
-			<StalkColor>Grey</StalkColor>
-			<ColorOfLeaves>Red</ColorOfLeaves>
 			<AveragePlantSize>60</AveragePlantSize>
 		</VisualParameters>
 		<GrovingTips>
@@ -26,8 +24,6 @@
 		<Origin>South Asia</Origin>
 		<VisualParameters>
 			<StalkColor>Green</StalkColor>
-			<ColorOfLeaves>Blue</ColorOfLeaves>
-			<AveragePlantSize>12</AveragePlantSize>
 		</VisualParameters>
 		<GrovingTips>
 			<Temperature>27</Temperature>
@@ -38,13 +34,11 @@
 		<Price>12.79</Price>
 	</Flower>
 
-	<Flower id="3" Soil="unpaved">
+	<Flower id="3">
 		<Name>Thoren</Name>
 		<Origin>Asia</Origin>
 		<VisualParameters>
-			<StalkColor>Green</StalkColor>
 			<ColorOfLeaves>Violet</ColorOfLeaves>
-			<AveragePlantSize>55</AveragePlantSize>
 		</VisualParameters>
 		<GrovingTips>
 			<Watering>60</Watering>
@@ -59,9 +53,7 @@
 		<Name>Kermek</Name>
 		<Origin>Asia</Origin>
 		<VisualParameters>
-			<StalkColor>Green</StalkColor>
 			<ColorOfLeaves>Blue</ColorOfLeaves>
-			<AveragePlantSize>34</AveragePlantSize>
 		</VisualParameters>
 		<GrovingTips>
 			<Watering>60</Watering>
@@ -76,9 +68,7 @@
 		<Name>Abelia</Name>
 		<Origin>Japan</Origin>
 		<VisualParameters>
-			<StalkColor>Green</StalkColor>
-			<ColorOfLeaves>Violet</ColorOfLeaves>
-			<AveragePlantSize>55</AveragePlantSize>
+			<ColorOfLeaves>Blue</ColorOfLeaves>
 		</VisualParameters>
 		<GrovingTips>
 			<Watering>60</Watering>

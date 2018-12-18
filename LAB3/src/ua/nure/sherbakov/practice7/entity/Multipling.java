@@ -37,8 +37,10 @@ import javax.xml.bind.annotation.XmlType;
 public enum Multipling {
 
 	@XmlEnumValue("leaves")
-	LEAVES("leaves"), @XmlEnumValue("feces")
-	FECES("feces"), @XmlEnumValue("seeds")
+	LEAVES("leaves"),
+	@XmlEnumValue("feces")
+	FECES("feces"),
+	@XmlEnumValue("seeds")
 	SEEDS("seeds");
 
 	private final String value;
