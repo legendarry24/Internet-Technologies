@@ -114,27 +114,21 @@ public class FlowerDAOInMemoryImpl implements FlowersDAO {
 		}
 	}
 
-	private Flower newFlower(String name, String origin, String soil, String stalkColor, String colorOfLeaves,
-			int averagePlantSize, int temperature, int watering, boolean lighting, Multipling multipling,
-			BigDecimal price) {
+	private Flower newFlower(String name, String origin, String soil, Multipling multipling, BigDecimal price) {
 		Flower flower = new Flower();
 		VisualParameters vp = new VisualParameters();
 		GrovingTips gt = new GrovingTips();
 		flower.setName(name);
 		flower.setOrigin(origin);
 		flower.setSoil(soil);
-		vp.setStalkColor(stalkColor);
-		flower.setVisualParameters(vp);
-		vp.setColorOfLeaves(colorOfLeaves);
-		flower.setVisualParameters(vp);
-		vp.setAveragePlantSize(averagePlantSize);
-		flower.setVisualParameters(vp);
-		gt.setTemperature(temperature);
-		flower.setGrovingTips(gt);
-		gt.setWatering(watering);
-		flower.setGrovingTips(gt);
-		gt.setLighting(lighting);
-		flower.setGrovingTips(gt);
+		/*
+		 * vp.setStalkColor(stalkColor); flower.setVisualParameters(vp);
+		 * vp.setColorOfLeaves(colorOfLeaves); flower.setVisualParameters(vp);
+		 * vp.setAveragePlantSize(averagePlantSize); flower.setVisualParameters(vp);
+		 * gt.setTemperature(temperature); flower.setGrovingTips(gt);
+		 * gt.setWatering(watering); flower.setGrovingTips(gt);
+		 * gt.setLighting(lighting); flower.setGrovingTips(gt);
+		 */
 		flower.setMultipling(multipling);
 		flower.setPrice(price);
 		return flower;
@@ -142,17 +136,11 @@ public class FlowerDAOInMemoryImpl implements FlowersDAO {
 
 	private void initFlowers() {
 		Flower[] flowers = new Flower[] {
-				newFlower("Rose", "Holland", "podzolic", "Grey", "Red", 60, 20, 80, true, Multipling.FECES,
-						new BigDecimal("15.59")),
-				newFlower("Hedychium", "South Asia", "wood-podzolic", "Green", "Blue", 12, 27, 105, false,
-						Multipling.FECES, new BigDecimal("12.79")),
-				newFlower("Thoren", "Asia", "unpaved", "Green", "Violet", 55, 60, 22, true, Multipling.SEEDS,
-						new BigDecimal("16.49")),
-				newFlower("Kermek", "Asia", "unpaved", "Green", "Blue", 34, 60, 22, true, Multipling.SEEDS,
-						new BigDecimal("20.99")),
-				newFlower("Abelia", "Japan", "unpaved", "Greey", "Violet", 55, 60, 22, true, Multipling.FECES,
-						new BigDecimal("17.59")) };
-
+				newFlower("Rose", "Holland", "podzolic", Multipling.FECES, new BigDecimal("15.59")),
+				newFlower("Hedychium", "South Asia", "wood-podzolic", Multipling.FECES, new BigDecimal("12.79")),
+				newFlower("Thoren", "Asia", "unpaved", Multipling.SEEDS, new BigDecimal("16.49")),
+				newFlower("Kermek", "Asia", "unpaved", Multipling.SEEDS, new BigDecimal("20.99")),
+				newFlower("Abelia", "Japan", "unpaved", Multipling.FECES, new BigDecimal("17.59")) };
 		for (int i = 0; i < flowers.length; i++) {
 			addFlower(flowers[i]);
 		}
