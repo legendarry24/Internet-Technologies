@@ -1,0 +1,6 @@
+<p>
+	<a href="list">List</a> | <a href="add.jsp">Add new flower</a> | <a
+		href="findname.jsp">Find by Name</a> | <a href="findorigin.jsp">Find
+		By Origin</a>
+</p>
+<hr />
