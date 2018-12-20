@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
-using WebClient.Models;
+using Domain.Models;
 
 namespace WebClient.Services
 {
@@ -9,8 +9,7 @@ namespace WebClient.Services
 		public async Task<Phone> UpdatePhoneAsync(Phone phone)
 		{
 			// HTTP PUT request
-			HttpResponseMessage response = await _client.PutAsJsonAsync(
-				$"api/phones/{phone.Id}", phone);
+			HttpResponseMessage response = await Client.PutAsJsonAsync($"{Query}{phone.Id}", phone);
 			response.EnsureSuccessStatusCode();
 
 			// Deserialize the updated phone from the response body.

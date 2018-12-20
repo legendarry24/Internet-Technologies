@@ -6,17 +6,21 @@ namespace WebClient.Services
 {
 	public abstract class ServiceBase
 	{
-		protected readonly HttpClient _client;
+		protected HttpClient Client { get; }
 
-		protected const string baseUri = "https://localhost:44334/";
+		private const string _baseUri = "https://localhost:44334/";
+		private const string _query = "api/phones/";
+
+		protected string Query => _query;
+		protected string Path => _baseUri + _query;
 
 		protected ServiceBase()
 		{
-			_client = new HttpClient();
-			_client.BaseAddress = new Uri(baseUri);
-			_client.DefaultRequestHeaders.Accept.Clear();
+			Client = new HttpClient();
+			Client.BaseAddress = new Uri(_baseUri);
+			Client.DefaultRequestHeaders.Accept.Clear();
 			// set Accept header to "application/json"
-			_client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+			Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 		}
 	}
 }

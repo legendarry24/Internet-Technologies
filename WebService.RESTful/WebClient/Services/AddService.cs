@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using WebClient.Models;
+using Domain.Models;
 
 namespace WebClient.Services
 {
@@ -10,8 +10,7 @@ namespace WebClient.Services
 		public async Task<Uri> CreatePhoneAsync(Phone phone)
 		{
 			// HTTP POST request
-			HttpResponseMessage response = await _client.PostAsJsonAsync(
-				"api/phones", phone);
+			HttpResponseMessage response = await Client.PostAsJsonAsync(Query, phone);
 			// throws an exception if the status code falls outside the range 200–299
 			response.EnsureSuccessStatusCode();
 

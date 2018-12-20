@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Net.Http;
 using System.Threading.Tasks;
-using WebClient.Models;
+using Domain.Models;
 
 namespace WebClient.Services
 {
 	public class SearchService : ServiceBase, ISearchService
 	{
-		const string path = baseUri + "api/phones/";
-
 		public async Task<IEnumerable<Phone>> GetPhonesAsync()
 		{
 			IEnumerable<Phone> phones = null;
 			// HTTP GET request
-			HttpResponseMessage response = await _client.GetAsync(path);
+			HttpResponseMessage response = await Client.GetAsync(Path);
 
 			if (response.IsSuccessStatusCode)
 			{
@@ -30,7 +28,7 @@ namespace WebClient.Services
 		{
 			Phone phone = null;
 			// HTTP GET request
-			HttpResponseMessage response = await _client.GetAsync(path + id);
+			HttpResponseMessage response = await Client.GetAsync(Path + id);
 
 			if (response.IsSuccessStatusCode)
 			{

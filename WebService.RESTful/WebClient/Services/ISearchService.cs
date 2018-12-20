@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using WebClient.Models;
+using Domain.Models;
 
 namespace WebClient.Services
 {

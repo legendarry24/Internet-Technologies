@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using WebClient.Models;
 
-namespace WebClient.Controllers
+namespace WebClient.MvcControllers
 {
 	public class HomeController : Controller
 	{

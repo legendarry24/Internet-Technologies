@@ -2,7 +2,7 @@
 using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebService.RESTful.Controllers
+namespace WebService.RESTful.ApiControllers
 {
 	[Produces("application/json")]
 	[Route("api/[controller]")]

@@ -9,8 +9,7 @@ namespace WebClient.Services
 		public async Task<HttpStatusCode> DeletePhoneAsync(int id)
 		{
 			// HTTP DELETE request
-			HttpResponseMessage response = await _client.DeleteAsync(
-				$"api/phones/{id}");
+			HttpResponseMessage response = await Client.DeleteAsync($"{Query}{id}");
 
 			return response.StatusCode;
 		}
