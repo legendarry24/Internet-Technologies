@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebClient.Models.Phone>
+
+@{
+	ViewData["Title"] = "Phones";
+}
+
+<h2>Animals list</h2>
+
+<table class="table table-bordered">
+	<thead class="thead-dark">
+	<tr>
+		<th scope="col">Manufacturer</th>
+		<th scope="col">Model</th>
+		<th scope="col">Price</th>
+		<th style="width: 35px" scope="col"></th>
+		<th style="width: 35px" scope="col"></th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var phone in Model)
+	{
+		<tr>
+			<td>@phone.Manufacturer</td>
+			<td>@phone.Model</td>
+			<td>@phone.Price</td>
+			<td style="width:35px">@Html.ActionLink(string.Empty, "Edit", new { id = phone.Id }, new { @class = "glyphicon glyphicon-pencil" })</td>
+			<td style="width:35px">@Html.ActionLink(string.Empty, "Delete", new { id = phone.Id }, new { @class = "glyphicon glyphicon-remove" })</td>
+		</tr>
+	}
+	</tbody>
+</table>
+
+<div class="list-group">
+	@Html.ActionLink("Add new phone", "Create", new { @class = "list-group-item list-group-item-action" })
+</div>
