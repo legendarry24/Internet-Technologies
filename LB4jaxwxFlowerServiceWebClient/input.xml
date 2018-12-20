@@ -1,0 +1,91 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<tns:Flowers
+	xmlns:tns="http://sherbakov.nure.ua/practice7/entity"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://sherbakov.nure.ua/practice7/entity input.xsd ">
+
+	<Flower id="1" Soil="podzolic">
+		<Name>Rose</Name>
+		<Origin>Holland</Origin>
+		<VisualParameters>
+			<StalkColor>Grey</StalkColor>
+			<ColorOfLeaves>Red</ColorOfLeaves>
+			<AveragePlantSize>60</AveragePlantSize>
+		</VisualParameters>
+		<GrovingTips>
+			<Temperature>20</Temperature>
+			<Watering>80</Watering>
+			<Lighting>true</Lighting>
+		</GrovingTips>
+		<Multipling>feces</Multipling>
+		<Price>15.59</Price>
+	</Flower>
+
+	<Flower id="2" Soil="wood-podzolic">
+		<Name>Hedychium</Name>
+		<Origin>South Asia</Origin>
+		<VisualParameters>
+			<StalkColor>Green</StalkColor>
+			<ColorOfLeaves>Blue</ColorOfLeaves>
+			<AveragePlantSize>12</AveragePlantSize>
+		</VisualParameters>
+		<GrovingTips>
+			<Temperature>27</Temperature>
+			<Watering>105</Watering>
+			<Lighting>false</Lighting>
+		</GrovingTips>
+		<Multipling>feces</Multipling>
+		<Price>12.79</Price>
+	</Flower>
+
+	<Flower id="3" Soil="unpaved">
+		<Name>Thoren</Name>
+		<Origin>Asia</Origin>
+		<VisualParameters>
+			<StalkColor>Green</StalkColor>
+			<ColorOfLeaves>Violet</ColorOfLeaves>
+			<AveragePlantSize>55</AveragePlantSize>
+		</VisualParameters>
+		<GrovingTips>
+			<Watering>60</Watering>
+			<Temperature>22</Temperature>
+			<Lighting>true</Lighting>
+		</GrovingTips>
+		<Multipling>seeds</Multipling>
+		<Price>16.49</Price>
+	</Flower>
+
+	<Flower id="4" Soil="unpaved">
+		<Name>Kermek</Name>
+		<Origin>Asia</Origin>
+		<VisualParameters>
+			<StalkColor>Green</StalkColor>
+			<ColorOfLeaves>Blue</ColorOfLeaves>
+			<AveragePlantSize>34</AveragePlantSize>
+		</VisualParameters>
+		<GrovingTips>
+			<Watering>60</Watering>
+			<Temperature>22</Temperature>
+			<Lighting>true</Lighting>
+		</GrovingTips>
+		<Multipling>seeds</Multipling>
+		<Price>20.99</Price>
+	</Flower>
+
+	<Flower id="5" Soil="unpaved">
+		<Name>Abelia</Name>
+		<Origin>Japan</Origin>
+		<VisualParameters>
+			<StalkColor>Green</StalkColor>
+			<ColorOfLeaves>Violet</ColorOfLeaves>
+			<AveragePlantSize>55</AveragePlantSize>
+		</VisualParameters>
+		<GrovingTips>
+			<Watering>60</Watering>
+			<Temperature>22</Temperature>
+			<Lighting>true</Lighting>
+		</GrovingTips>
+		<Multipling>seeds</Multipling>
+		<Price>17.59</Price>
+	</Flower>
+</tns:Flowers>

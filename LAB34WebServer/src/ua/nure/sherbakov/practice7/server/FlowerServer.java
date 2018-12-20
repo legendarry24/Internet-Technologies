@@ -11,6 +11,9 @@ public class FlowerServer {
 	public FlowerServer() {
 		System.out.println("Starting Server");
 		Endpoint.publish(address, implementor);
+		/*Scanner sc = new Scanner(System.in);
+		
+		sc.close();*/
 	}
 
 	public static void main(String[] args) throws InterruptedException {
