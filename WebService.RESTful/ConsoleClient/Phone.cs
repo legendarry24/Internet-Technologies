@@ -12,7 +12,7 @@
 
 		public override string ToString()
 		{
-			return $"{nameof(Id)}: {Id}\n{nameof(Manufacturer)}: {Manufacturer}\n" +
+			return $"\r{nameof(Id)}: {Id}\n{nameof(Manufacturer)}: {Manufacturer}\n" +
 			       $"{nameof(Model)}: {Model}\n{nameof(Price)}: {Price}";
 		}
 	}
